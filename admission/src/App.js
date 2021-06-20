@@ -9,7 +9,7 @@ function App() {
     <Container >
     <Router>
       <Switch>
-       <Route path="/Authenticate" component={Auth}/> 
+       <Route exact path="/" component={Auth}/> 
        <Route path="/Dashboard" component={Dashboard}/> 
 
       </Switch>
