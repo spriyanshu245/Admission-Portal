@@ -34,6 +34,20 @@ export default function Auth() {
            }
            setLoading(false);
     }
+    async function signIn(e){
+        e.preventDefault();
+   
+        try{
+            setError('');
+            setLoading(true);
+            await Firebaseauth.auth().signInWithEmailAndPassword(loginemailRef.current.value, loginpasswordRef.current.value);
+            setLoginsuccess(true);
+            document.getElementById("signin-form").reset();
+           }catch(e){
+               setError('Login Failed'+"  "+e);
+           }
+           setLoading(false);
+    }
    
     return (
         <div style={{paddingTop:'30px', justifyContent:'center',alignContent:'center'}}>
@@ -82,7 +96,9 @@ export default function Auth() {
             
             <Card.Body>
                 <h1 className="text-center mb-4" style={{fontFamily:"Times New Roman,sans-serif",color:"mediumslateblue"}}>Sign In </h1>
-                <Form>
+                {error && <Alert variant="danger">{error}</Alert>}
+                {loginsuccess && <Alert variant="success" style={{margin:'50px',width:'max-content'}}>You are Successfully Logged In on Admission-Portal</Alert>}
+                <Form onSubmit={signIn} id="signin-form">
                     <Form.Group className="mb-3" id="email">
                     <Form.Label>Email address</Form.Label>
                     <Form.Control type="email" placeholder="Enter email" ref ={loginemailRef} autoComplete="on" required />
