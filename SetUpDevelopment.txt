@@ -1,0 +1,15 @@
+1.git clone https://github.com/chandramanipandey/Admission-Portal.git
+2.Install node.js
+3.Install React developer tools from Chrome Store https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en
+4.If Starting new project ---> npx create-react-app app-name OR npm install
+5.Install es7 React/Redux and simple React snippets extension in vscode;
+6.npm start  || yarn start(To run application)
+
+
+
+
+yarn add firebase
+yarn add bootstrap
+yarn add react-bootstrap
+yarn add react-router-dom
+
