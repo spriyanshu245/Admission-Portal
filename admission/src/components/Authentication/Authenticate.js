@@ -2,6 +2,7 @@ import React,{useRef,useEffect, useState} from 'react';
 import {Form, Button,Card,CardGroup,Alert} from 'react-bootstrap';
 import Firebaseauth from '../Firebase/firebase';
 import logo from '../Assets/logo1.jpg';
+import {Link,useHistory} from 'react-router-dom';
 export default function Auth() {
     const emailRef=useRef();
     const passwordRef=useRef();
@@ -9,10 +10,12 @@ export default function Auth() {
     const loginemailRef=useRef();
     const loginpasswordRef=useRef();
     const [error,setError] = useState('');
+    const [loginerror,setLoginError] = useState('');
     const [loading,setLoading] = useState(false);
     const [user,setUser] = useState();
     const [submitsuccess,setSubmitsuccess] = useState(false);
     const [loginsuccess,setLoginsuccess] = useState(false);
+    const history = useHistory();
     useEffect(() => {
     //    const unsubscribe = Firebaseauth.auth().onAuthStateChanged(user=>setUser(user));
     //    return unsubscribe;
@@ -38,15 +41,16 @@ export default function Auth() {
         e.preventDefault();
    
         try{
-            setError('');
+            setLoginError('');
             setLoading(true);
             await Firebaseauth.auth().signInWithEmailAndPassword(loginemailRef.current.value, loginpasswordRef.current.value);
             setLoginsuccess(true);
             document.getElementById("signin-form").reset();
            }catch(e){
-               setError('Login Failed'+"  "+e);
+               setLoginError('Login Failed'+"  "+e);
            }
            setLoading(false);
+           await history.push("/Dashboard");
     }
    
     return (
@@ -96,7 +100,7 @@ export default function Auth() {
             
             <Card.Body>
                 <h1 className="text-center mb-4" style={{fontFamily:"Times New Roman,sans-serif",color:"mediumslateblue"}}>Sign In </h1>
-                {error && <Alert variant="danger">{error}</Alert>}
+                {loginerror && <Alert variant="danger">{loginerror}</Alert>}
                 {loginsuccess && <Alert variant="success" style={{margin:'50px',width:'max-content'}}>You are Successfully Logged In on Admission-Portal</Alert>}
                 <Form onSubmit={signIn} id="signin-form">
                     <Form.Group className="mb-3" id="email">
