@@ -17,8 +17,7 @@ export default function Auth() {
     const [loginsuccess,setLoginsuccess] = useState(false);
     const history = useHistory();
     useEffect(() => {
-    //    const unsubscribe = Firebaseauth.auth().onAuthStateChanged(user=>setUser(user));
-    //    return unsubscribe;
+    
     }, [])
     async function signUp(e){
         e.preventDefault();
