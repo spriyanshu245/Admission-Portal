@@ -84,7 +84,7 @@ class Form extends Component {
                 <div className="form-row">
                 <div className="form-group col-3">
                     <label>PRN</label>
-                    <input type="text" value={this.state.prn} onChange={this.prn} placeholder="PRN..." />
+                    <input type="text" value={this.state.prn} onChange={this.prn} placeholder="PRN" />
                 </div>
                 <div className="form-group col-3">
                     <label>First Name</label>
