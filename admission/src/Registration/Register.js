@@ -84,15 +84,15 @@ class Form extends Component {
                 <div className="form-row">
                 <div className="form-group col-3">
                     <label>PRN</label>
-                    <input type="text" value={this.state.prn} onChange={this.prn} placeholder="PRN..." />
+                    <input type="text" value={this.state.prn} onChange={this.prn} placeholder="PRN" />
                 </div>
                 <div className="form-group col-3">
                     <label>First Name</label>
-                    <input type="text" value={this.state.firstName} onChange={this.firstName} placeholder="first Name..." />
+                    <input type="text" value={this.state.firstName} onChange={this.firstName} placeholder="first Name" />
                 </div>
                 <div className="form-group col-3">
                     <label>Last Name</label>
-                    <input type="text" value={this.state.lastName} onChange={this.lastName} placeholder="Last Name..." />
+                    <input type="text" value={this.state.lastName} onChange={this.lastName} placeholder="Last Name" />
                 </div>
             </div>
             <div className="form-row">
